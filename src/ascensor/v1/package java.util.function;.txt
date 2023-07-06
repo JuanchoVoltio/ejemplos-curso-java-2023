@@ -1,0 +1,12 @@
+package java.util.function;
+
+public interface Supplier<T> {
+
+  public void get (T t);
+
+}
+
+
+En la POO, el concepto de modularidad, se refiere a una organización en la que distintos componentes de un sistema de pro gramación se dividen en unidades funcionales separadas. 
+
+Un ejemplo más esclarecedor, se puede considerar que una casa o un departamento consisten en varias unidades que interaccionan: las instalaciones eléctricas, de calefacción y enfriamiento, el servicio sanitario y la estructura. Más que considerar que esos sistemas son un enredo gigantesco de alambres, ventilaciones, tubos y tableros, el arquitecto organizado que diseña una casa o departamento los considera como módulos separados que interactúan en formas bien definidas. Al hacer esa consideración se aplica la modularidad para aclarar las ideas, en una forma natural de organizar las funciones en unidades distintas y manejables.
