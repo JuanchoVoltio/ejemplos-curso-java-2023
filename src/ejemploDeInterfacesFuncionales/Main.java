@@ -8,13 +8,16 @@ public class Main {
         List<Manzana> manzanas = List.of(new Manzana(Manzana.VERDE, 10),
                                          new Manzana(Manzana.ROJA, 15),
                                          new Manzana(Manzana.VERDE, 13),
-                                         new Manzana(Manzana.VERDE, 9));
+                                         new Manzana(Manzana.VERDE, 9),
+                                         new Manzana(Manzana.ROJA, 11));
 
-        probarUnConsumer(manzanas);
+//        probarUnConsumer(manzanas);
+//
+//        probarUnPredicate(manzanas);
+//
+//        probarEncadenamientoDeStreams(manzanas);
 
-        probarUnPredicate(manzanas);
-
-        probarEncadenamientoDeStreams(manzanas);
+        probarUnaOperacionTerminalDeCircuitoCorto(manzanas);
     }
 
     /**
@@ -33,9 +36,20 @@ public class Main {
      */
     public static void probarUnConsumer(List<Manzana> manzanas){
         manzanas.stream().forEach(m -> System.out.println(m));
+        manzanas.stream().filter(m -> true);
     }
 
     public static void probarEncadenamientoDeStreams(List<Manzana> manzanas){
         manzanas.stream().filter(FiltrosDeManzana.POR_COLOR_VERDE).forEach(m -> System.out.println(m));
+    }
+
+    public static void probarUnaOperacionTerminal(List<Manzana> manzanas){
+        int pesoTotal = manzanas.stream().mapToInt(m -> m.getPeso()).sum();
+
+        System.out.println("El peso total es de " + pesoTotal);
+    }
+
+    public static void probarUnaOperacionTerminalDeCircuitoCorto(List<Manzana> manzanas){
+        System.out.println(manzanas.stream().anyMatch(FiltrosDeManzana.POR_COLOR_ROJO));
     }
 }
